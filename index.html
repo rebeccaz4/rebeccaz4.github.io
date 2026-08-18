@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xiao Zhou</title>
+<meta name="description" content="Xiao Zhou — undergraduate researcher at Shanghai Jiao Tong University working on LLM agents, computer-use agents, and agent evaluation.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231F4E79'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23ffffff' text-anchor='middle'%3EX%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap">
+<style>
+:root{
+  --bg:#F8F9FB;
+  --ink:#10151B;
+  --ink-2:#414B57;
+  --ink-3:#727C88;
+  --rule:#DEE3EA;
+  --rule-soft:#EAEEF3;
+  --accent:#1F4E79;
+  --accent-2:#2E6FA3;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1117;
+    --ink:#E5EAF0;
+    --ink-2:#AEB8C4;
+    --ink-3:#7B8593;
+    --rule:#222B36;
+    --rule-soft:#1A222B;
+    --accent:#8FBEE0;
+    --accent-2:#A9CFEA;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1117;
+  --ink:#E5EAF0;
+  --ink-2:#AEB8C4;
+  --ink-3:#7B8593;
+  --rule:#222B36;
+  --rule-soft:#1A222B;
+  --accent:#8FBEE0;
+  --accent-2:#A9CFEA;
+}
+
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.page{
+  max-width:56rem;
+  margin:0 auto;
+  padding:clamp(2.5rem,7vw,5rem) clamp(1.25rem,5vw,3rem) 4rem;
+}
+
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent);}
+a:hover{color:var(--accent-2);border-bottom-color:var(--accent-2);}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+
+/* ---- masthead ---- */
+.masthead{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  padding-bottom:2.25rem;
+  border-bottom:1px solid var(--rule);
+}
+.name{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(2.3rem,6vw,3.1rem);
+  line-height:1.1;
+  letter-spacing:-0.015em;
+  margin:0;
+  text-wrap:balance;
+}
+.name .cn{
+  font-size:0.5em;
+  color:var(--ink-3);
+  font-weight:400;
+  margin-left:0.6rem;
+  letter-spacing:0.05em;
+  white-space:nowrap;
+}
+.thesis{
+  font-family:var(--serif);
+  font-size:clamp(1.05rem,2.4vw,1.25rem);
+  line-height:1.5;
+  color:var(--ink-2);
+  margin:0;
+  max-width:34ch;
+  text-wrap:balance;
+}
+.contact{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.4rem 1.4rem;
+  font-family:var(--mono);
+  font-size:0.8125rem;
+  letter-spacing:0.01em;
+  margin-top:0.4rem;
+}
+.contact a{border-bottom-color:transparent;color:var(--ink-2);}
+.contact a:hover{color:var(--accent-2);border-bottom-color:var(--accent-2);}
+
+/* ---- sections ---- */
+.section{
+  display:grid;
+  grid-template-columns:8.5rem minmax(0,1fr);
+  gap:0 2.75rem;
+  padding:2.5rem 0;
+  border-bottom:1px solid var(--rule-soft);
+}
+.section:last-of-type{border-bottom:0;}
+.section > h2{
+  grid-column:1;
+  margin:0;
+  font-family:var(--mono);
+  font-size:0.6875rem;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  color:var(--ink-3);
+  padding-top:0.45rem;
+}
+.body{grid-column:2;min-width:0;}
+@media (max-width:760px){
+  .section{grid-template-columns:1fr;gap:0.85rem;}
+  .section > h2{grid-column:1;padding-top:0;}
+  .body{grid-column:1;}
+}
+
+.prose p{margin:0 0 1rem;max-width:62ch;color:var(--ink-2);}
+.prose p:last-child{margin-bottom:0;}
+.prose strong{color:var(--ink);font-weight:500;}
+.prose em{font-style:italic;}
+
+/* ---- publications ---- */
+.pubs{display:flex;flex-direction:column;gap:1.9rem;}
+.pub-title{
+  font-family:var(--serif);
+  font-size:1.12rem;
+  font-weight:500;
+  line-height:1.35;
+  margin:0 0 0.4rem;
+  color:var(--ink);
+  text-wrap:balance;
+}
+.pub-title a{
+  color:inherit;
+  border-bottom:1px solid transparent;
+  transition:border-color .15s ease,color .15s ease;
+}
+.pub-title a:hover{color:var(--accent-2);border-bottom-color:var(--accent-2);}
+.venue a{color:var(--ink-3);border-bottom-color:transparent;}
+.venue a:hover{color:var(--accent-2);border-bottom-color:var(--accent-2);}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important;animation:none !important;}
+}
+.authors{margin:0 0 0.4rem;font-size:0.9375rem;color:var(--ink-2);}
+.authors .me{color:var(--ink);font-weight:600;}
+.gloss{margin:0.5rem 0 0;font-size:0.9375rem;color:var(--ink-2);max-width:60ch;}
+.venue{
+  font-family:var(--mono);
+  font-size:0.75rem;
+  line-height:1.7;
+  letter-spacing:0.03em;
+  color:var(--ink-3);
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:0 0.5rem;
+  margin:0;
+}
+.venue .accepted{color:var(--accent);font-weight:500;}
+.venue .pending{color:var(--ink-3);}
+.venue .eq{color:var(--ink-3);}
+
+/* ---- entries (experience / education) ---- */
+.entries{display:flex;flex-direction:column;gap:1.75rem;}
+.entry-head{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:0.25rem 1rem;
+}
+.org{
+  font-family:var(--serif);
+  font-size:1.08rem;
+  font-weight:500;
+  margin:0;
+  color:var(--ink);
+}
+.dates{
+  font-family:var(--mono);
+  font-size:0.75rem;
+  letter-spacing:0.02em;
+  color:var(--ink-3);
+  white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+.role{margin:0.15rem 0 0.45rem;font-size:0.9375rem;color:var(--ink-2);}
+.entry ul{margin:0;padding-left:1.05rem;}
+.entry li{margin:0 0 0.35rem;font-size:0.9375rem;color:var(--ink-2);max-width:60ch;}
+.entry li:last-child{margin-bottom:0;}
+.entry li::marker{color:var(--ink-3);}
+
+.courses{
+  font-family:var(--mono);
+  font-size:0.78rem;
+  line-height:1.8;
+  color:var(--ink-3);
+  margin:0.6rem 0 0;
+}
+
+footer{
+  padding-top:2.25rem;
+  border-top:1px solid var(--rule);
+  font-family:var(--mono);
+  font-size:0.75rem;
+  color:var(--ink-3);
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem 1.5rem;
+  justify-content:space-between;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <h1 class="name">Xiao Zhou<span class="cn">周晓</span></h1>
+    <p class="thesis">Measuring where LLM agents break on real digital work — then fixing the bottlenecks that measurement exposes.</p>
+    <div class="contact">
+      <a href="mailto:rebeccazzzz@sjtu.edu.cn">rebeccazzzz@sjtu.edu.cn</a>
+      <a href="https://github.com/rebeccaz4">GitHub</a>
+      <a href="Xiao_Zhou_CV.pdf">CV (PDF)</a>
+      <span>Shanghai Jiao Tong University</span>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>About</h2>
+    <div class="body prose">
+      <p>I am a third-year undergraduate in Artificial Intelligence at <strong>Shanghai Jiao Tong University</strong> (GPA 91.6/100, rank 9/98). I work on LLM agents that complete real digital work — operating computers the way people do, over long horizons, without a human watching each step.</p>
+      <p>My research runs in two directions that feed each other. <strong>Measurement:</strong> building controlled, realistic environments and benchmarks that isolate <em>where</em> agents fail — for example, holding goals and states fixed across screen-only and skill-mediated execution, which separates bottlenecks that belong to the interface from those that belong to the model. <strong>Repair:</strong> turning those findings into methods, such as image-based memory representations that keep long-horizon interaction history compact and usable.</p>
+      <p>I am currently working with <strong>Prof. Arman Cohan</strong> at Yale University, in person for summer and fall 2026. I am applying for PhD programs starting <strong>Fall 2027</strong>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Publications</h2>
+    <div class="body pubs">
+
+      <article class="pub">
+        <h3 class="pub-title"><a href="https://arxiv.org/abs/2606.24551">GUI vs. CLI: Execution Bottlenecks in Screen-Only and Skill-Mediated Computer-Use Agents</a></h3>
+        <p class="authors"><span class="me">Xiao Zhou</span>*, Siyue Zhang*, Yilun Zhao, Jinbiao Wei, Tingyu Song, Arman Cohan, Chen Zhao</p>
+        <p class="venue"><span class="pending">Under review, EMNLP 2026</span><span class="eq">· * equal contribution</span><span class="eq">· <a href="https://arxiv.org/abs/2606.24551">arXiv:2606.24551</a></span></p>
+        <p class="gloss">A matched execution-layer benchmark that compares screen-only and skill-mediated computer-use agents under identical goals and states, revealing modality-specific execution bottlenecks and differences in end-to-end task success.</p>
+      </article>
+
+      <article class="pub">
+        <h3 class="pub-title"><a href="https://arxiv.org/abs/2510.09510">MRMR: A Realistic and Expert-Level Multidisciplinary Benchmark for Reasoning-Intensive Multimodal Retrieval</a></h3>
+        <p class="authors">Siyue Zhang*, Yuan Gao*, <span class="me">Xiao Zhou</span>*, Yilun Zhao, Tingyu Song, Arman Cohan, Anh Tuan Luu, Chen Zhao</p>
+        <p class="venue"><span class="accepted">ICLR 2026</span><span class="eq">· * equal contribution</span><span class="eq">· <a href="https://arxiv.org/abs/2510.09510">arXiv:2510.09510</a></span></p>
+        <p class="gloss">An expert-level benchmark spanning multiple disciplines for retrieval that requires reasoning, with complex query–corpus structures and LLM-based reasoning baselines.</p>
+      </article>
+
+      <article class="pub">
+        <h3 class="pub-title"><a href="https://arxiv.org/abs/2605.19769">OpenComputer: Verifiable Software Worlds for Computer-Use Agents</a></h3>
+        <p class="authors">Jinbiao Wei, Qianran Ma, Yilun Zhao, <span class="me">Xiao Zhou</span>, Kangqi Ni, Guo Gan, Arman Cohan</p>
+        <p class="venue"><span class="pending">Under review, NeurIPS 2026</span><span class="eq">· <a href="https://arxiv.org/abs/2605.19769">arXiv:2605.19769</a></span></p>
+        <p class="gloss">Software environments with verifiable outcomes for training and evaluating agents that operate real computers.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Research</h2>
+    <div class="body entries">
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="org">Yale University</h3>
+          <span class="dates">Mar 2026 — present</span>
+        </div>
+        <p class="role">Research Assistant, advised by Prof. Arman Cohan</p>
+        <ul>
+          <li>Building a benchmark for forecasting weak signals in science — early, low-visibility ideas that later become mainstream topics — and evaluating how well research systems anticipate them.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="org">New York University Shanghai</h3>
+          <span class="dates">Jun 2025 — present</span>
+        </div>
+        <p class="role">Research Assistant, advised by Prof. Chen Zhao</p>
+        <ul>
+          <li>Constructed a matched execution-layer benchmark comparing screen-only and skill-mediated computer-use agents under identical goals and states.</li>
+          <li>Co-developed MRMR, an expert-level multidisciplinary benchmark for reasoning-intensive multimodal retrieval.</li>
+          <li>Investigated image-based memory for agents — compression strategies and layout designs for encoding interaction history, and their effect on task success and execution efficiency.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="org">Shanghai Jiao Tong University</h3>
+          <span class="dates">Mar 2025 — present</span>
+        </div>
+        <p class="role">Research Assistant, advised by Prof. Hai Zhao</p>
+        <ul>
+          <li>Analyzed how efficiency techniques — quantization, pruning, sparsification, KV-cache compression — affect the safety, robustness, and reasoning of large reasoning models.</li>
+          <li>Studied the "super weights" underpinning mathematical reasoning via weight attribution, activation tracing, and targeted ablation.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="org">Shanghai Jiao Tong University</h3>
+          <span class="dates">Nov 2024 — Mar 2025</span>
+        </div>
+        <p class="role">Research Assistant, advised by Prof. Junchi Yan · LLMs for chemistry</p>
+        <ul>
+          <li>Implemented a Transformer from scratch (multi-head attention, positional encoding, training optimization) and ran dataset preprocessing and model evaluation for AI4Chem tasks.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="org">Yalotein Biotech</h3>
+          <span class="dates">Sep 2025 — present</span>
+        </div>
+        <p class="role">Intern</p>
+        <ul>
+          <li>Built a knowledge-base QA application with document ingestion, keyword and embedding retrieval, user-driven updates, and an interactive query interface; now developing a multi-agent system around the knowledge-base agent.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Education</h2>
+    <div class="body entries">
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="org">Shanghai Jiao Tong University</h3>
+          <span class="dates">Sep 2023 — Jun 2027 (expected)</span>
+        </div>
+        <p class="role">B.Eng. in Artificial Intelligence · GPA 91.6/100 · Rank 9/98</p>
+        <p class="courses">Selected coursework — Natural Language Processing 99 · Design and Analysis of Algorithms 98 · Mathematical Analysis II 97 · Large Language Models 96 · Mathematical Logic 96 · Stochastic Processes 95 · Computer Architecture 94 · Computer Networks 94 · Probability and Statistics 93 · Linear and Convex Optimization 93 · Reinforcement Learning 91 · Deep Learning 90</p>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <span>Xiao Zhou · Shanghai, China</span>
+    <span>rebeccazzzz@sjtu.edu.cn</span>
+  </footer>
+
+</div>
+</body>
+</html>
