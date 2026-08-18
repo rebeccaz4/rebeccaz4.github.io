@@ -96,17 +96,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius
 
 /* ---------- content ---------- */
 .content{min-width:0;}
-.statement{
-  font-family:var(--serif);
-  font-style:italic;
-  font-size:1.24rem;
-  line-height:1.5;
-  color:var(--ink-2);
-  margin:0 0 1.9rem;
-  padding-bottom:1.6rem;
-  border-bottom:1px solid var(--rule);
-  max-width:40ch;
-}
 section + section{margin-top:2.7rem;}
 h2{
   font-family:var(--serif);
@@ -117,6 +106,7 @@ h2{
   border-bottom:1px solid var(--rule);
 }
 .bio p{margin:0;color:var(--ink-2);max-width:64ch;}
+.bio.first{margin-top:-0.35rem;}
 .bio p + p{margin-top:0.95rem;}
 
 /* ---------- news ---------- */
@@ -144,6 +134,8 @@ h2{
 .tag.venue{color:var(--accent);font-weight:600;}
 .meta .sep{color:var(--ink-3);}
 .note{font-size:0.86rem;color:var(--ink-3);margin:1.25rem 0 0;}
+.projects{margin-top:1.25rem;}
+.soon{color:var(--ink-3);font-size:0.82rem;font-style:italic;}
 
 /* ---------- rows ---------- */
 .rows{display:flex;flex-direction:column;gap:1.2rem;}
@@ -169,7 +161,6 @@ footer{
   .rail .name,.rail .cn,.rail .role,.rail .links{grid-column:2;}
   .rail img{grid-row:1 / span 4;grid-column:1;}
   .links{flex-direction:row;flex-wrap:wrap;gap:0.3rem 1.1rem;}
-  .statement{font-size:1.12rem;}
 }
 </style>
 </head>
@@ -183,7 +174,7 @@ footer{
     <p class="role">Undergraduate in Artificial Intelligence<br>Shanghai Jiao Tong University</p>
     <ul class="links">
       <li><a href="mailto:rebeccazzzz@sjtu.edu.cn">Email</a></li>
-      <li><a href="Xiao_Zhou_CV.pdf">Curriculum Vitae</a></li>
+      <li><a href="Xiao_Zhou_CV.pdf">CV</a></li>
       <li><a href="https://scholar.google.com/citations?user=BzFY1dAAAAAJ&amp;hl=en">Google Scholar</a></li>
       <li><a href="https://github.com/rebeccaz4">GitHub</a></li>
     </ul>
@@ -191,9 +182,7 @@ footer{
 
   <main class="content">
 
-    <p class="statement">I build evaluations that show where LLM agents break on real digital work — then fix the bottlenecks they expose.</p>
-
-    <section class="bio">
+    <section class="bio first">
       <p>I am a third-year undergraduate in Artificial Intelligence at Shanghai Jiao Tong University. I am currently a research assistant with <a href="https://armancohan.com/">Prof. Arman Cohan</a> at Yale University, and I work with <a href="https://henryzhao5852.github.io/">Prof. Chen Zhao</a> at NYU Shanghai on computer-use agents and multimodal reasoning. I also work with Prof. Hai Zhao at Shanghai Jiao Tong University, where I started out studying reasoning and efficiency in large reasoning models.</p>
       <p>My research is on agents that carry out real digital work over long horizons. I build controlled, realistic environments and benchmarks that isolate <em>where</em> agents fail, and turn those findings into methods that remove the bottlenecks — for instance, image-based memory representations for long-horizon execution. I am applying for PhD programs starting Fall 2027.</p>
     </section>
@@ -201,9 +190,6 @@ footer{
     <section>
       <h2>News</h2>
       <ul class="news">
-        <li><span class="when">2026.06</span><span>Preprint of <a href="https://arxiv.org/abs/2606.24551">GUI vs. CLI</a>, on execution bottlenecks in computer-use agents, is out.</span></li>
-        <li><span class="when">2026.05</span><span>Preprint of <a href="https://arxiv.org/abs/2605.19769">OpenComputer</a>, verifiable software worlds for computer-use agents, is out.</span></li>
-        <li><span class="when">2026.03</span><span>Started working with Prof. Arman Cohan at Yale University; visiting in person for summer and fall 2026.</span></li>
         <li><span class="when">2026.01</span><span><a href="https://arxiv.org/abs/2510.09510">MRMR</a> is accepted to ICLR 2026.</span></li>
       </ul>
     </section>
@@ -251,7 +237,7 @@ footer{
     </section>
 
     <section>
-      <h2>Experience</h2>
+      <h2>Research Experience</h2>
       <div class="rows">
         <div>
           <div class="row-head">
@@ -263,7 +249,7 @@ footer{
         <div>
           <div class="row-head">
             <p class="where">New York University Shanghai</p>
-            <span class="when-r">Jun 2025 — present</span>
+            <span class="when-r">Jun 2025 — Jun 2026</span>
           </div>
           <p class="what">Research assistant with Prof. Chen Zhao. Computer-use agents, agent memory, multimodal retrieval.</p>
         </div>
@@ -274,13 +260,40 @@ footer{
           </div>
           <p class="what">Research assistant with Prof. Hai Zhao. Efficiency techniques and their effect on reasoning in large reasoning models.</p>
         </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Industry Experience</h2>
+      <div class="rows">
         <div>
           <div class="row-head">
             <p class="where">Yalotein Biotech</p>
             <span class="when-r">Sep 2025 — present</span>
           </div>
-          <p class="what">Software engineering intern. Built a knowledge-base question-answering system with document ingestion and hybrid retrieval; now building a multi-agent system around the knowledge-base agent.</p>
+          <p class="what">Software engineering intern.</p>
         </div>
+      </div>
+      <div class="pubs projects">
+
+        <article>
+          <h3 class="pub-title">Knowledge-Base Management and Question Answering</h3>
+          <p class="meta">
+            <span class="tag">Yalotein Biotech</span>
+            <span class="soon">Code to be released</span>
+          </p>
+          <p class="gloss">An application for maintaining and querying an internal knowledge base: document ingestion, keyword and embedding-based retrieval, user-driven knowledge updates, and an interactive query interface.</p>
+        </article>
+
+        <article>
+          <h3 class="pub-title">A Multi-Agent System over an Enterprise Knowledge Base</h3>
+          <p class="meta">
+            <span class="tag">Yalotein Biotech</span>
+            <span class="soon">Code to be released</span>
+          </p>
+          <p class="gloss">A multi-agent system built around a knowledge-base agent, so that retrieval, updating, and downstream reasoning are handled by separate cooperating agents.</p>
+        </article>
+
       </div>
     </section>
 
