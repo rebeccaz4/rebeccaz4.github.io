@@ -53,272 +53,251 @@ body{
   color:var(--ink);
   font-family:var(--sans);
   font-size:16.5px;
-  line-height:1.6;
+  line-height:1.68;
   -webkit-font-smoothing:antialiased;
-}
-.page{
-  max-width:46rem;
-  margin:0 auto;
-  padding:clamp(2.25rem,6vw,4rem) clamp(1.15rem,4vw,2rem) 3.5rem;
 }
 a{color:var(--accent);text-decoration:none;}
 a:hover{color:var(--accent-2);text-decoration:underline;text-underline-offset:2px;}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px;}
 
-/* ---------- header ---------- */
-.masthead{
-  display:flex;
-  align-items:flex-start;
-  gap:clamp(1.25rem,4vw,2.25rem);
-  padding-bottom:1.75rem;
+/* ---------- shell: identity rail + content ---------- */
+.shell{
+  max-width:62rem;
+  margin:0 auto;
+  padding:clamp(2.5rem,6vw,4.5rem) clamp(1.15rem,4vw,2.5rem) 4rem;
+  display:grid;
+  grid-template-columns:14.5rem minmax(0,1fr);
+  gap:0 4rem;
+  align-items:start;
 }
-.portrait{flex:0 0 auto;}
-.portrait img{
+
+/* ---------- rail ---------- */
+.rail{position:sticky;top:2.5rem;}
+.rail img{
   display:block;
-  width:150px;
-  height:190px;
+  width:100%;
+  aspect-ratio:4/5;
   object-fit:cover;
-  border-radius:3px;
+  border-radius:4px;
   border:1px solid var(--rule);
+  margin-bottom:1.15rem;
 }
-.identity{flex:1 1 auto;min-width:0;}
 .name{
   font-family:var(--serif);
-  font-size:clamp(1.9rem,5vw,2.4rem);
+  font-size:1.72rem;
   font-weight:600;
   line-height:1.15;
   letter-spacing:-0.01em;
-  margin:0 0 0.35rem;
+  margin:0 0 0.2rem;
 }
-.name .cn{font-size:0.62em;font-weight:400;color:var(--ink-3);margin-left:0.5rem;}
-.role{margin:0 0 0.7rem;color:var(--ink-2);font-size:0.98rem;}
+.cn{display:block;font-size:0.95rem;font-weight:400;color:var(--ink-3);margin-bottom:0.75rem;letter-spacing:0.08em;}
+.role{margin:0 0 1.15rem;color:var(--ink-2);font-size:0.9rem;line-height:1.5;}
+.links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.32rem;font-size:0.9rem;}
+
+/* ---------- content ---------- */
+.content{min-width:0;}
 .statement{
   font-family:var(--serif);
   font-style:italic;
-  font-size:1.02rem;
+  font-size:1.24rem;
   line-height:1.5;
   color:var(--ink-2);
-  margin:0 0 0.9rem;
-  max-width:38ch;
+  margin:0 0 1.9rem;
+  padding-bottom:1.6rem;
+  border-bottom:1px solid var(--rule);
+  max-width:40ch;
 }
-.links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:0.3rem 1rem;
-  font-size:0.9rem;
-  margin:0;
-  padding:0;
-  list-style:none;
-}
-@media (max-width:620px){
-  .masthead{flex-direction:column;gap:1.25rem;}
-  .portrait img{width:118px;height:150px;}
-}
-
-/* ---------- sections ---------- */
-section{padding-top:1.9rem;}
+section + section{margin-top:2.7rem;}
 h2{
   font-family:var(--serif);
-  font-size:1.18rem;
+  font-size:1.2rem;
   font-weight:600;
-  margin:0 0 1rem;
-  padding-bottom:0.45rem;
+  margin:0 0 1.15rem;
+  padding-bottom:0.5rem;
   border-bottom:1px solid var(--rule);
 }
-.bio p{margin:0;color:var(--ink-2);}
-.bio p + p{margin-top:0.8rem;}
+.bio p{margin:0;color:var(--ink-2);max-width:64ch;}
+.bio p + p{margin-top:0.95rem;}
 
 /* ---------- news ---------- */
-.news{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.5rem;}
-.news li{display:flex;gap:0.9rem;font-size:0.94rem;color:var(--ink-2);}
-.news .when{
-  flex:0 0 4.1rem;
-  color:var(--ink-3);
-  font-variant-numeric:tabular-nums;
-  font-weight:500;
-}
+.news{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.65rem;}
+.news li{display:flex;gap:1.1rem;font-size:0.95rem;color:var(--ink-2);}
+.news .when{flex:0 0 4.2rem;color:var(--ink-3);font-variant-numeric:tabular-nums;font-weight:500;}
 
 /* ---------- publications ---------- */
-.pubs{display:flex;flex-direction:column;gap:1.75rem;}
-.pub{display:flex;align-items:flex-start;gap:1.15rem;}
-.thumb{flex:0 0 215px;display:block;}
-.thumb img{
-  display:block;
-  width:100%;
-  height:auto;
-  border:1px solid var(--rule);
-  border-radius:3px;
-  background:#fff;
-}
-.pub-body{flex:1 1 auto;min-width:0;}
-@media (max-width:620px){
-  .pub{flex-direction:column;gap:0.85rem;}
-  .thumb{flex:0 0 auto;width:100%;max-width:26rem;}
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) .thumb img{filter:brightness(0.9);}
-}
-:root[data-theme="dark"] .thumb img{filter:brightness(0.9);}
-.pub-title{font-size:1.02rem;font-weight:600;line-height:1.4;margin:0 0 0.25rem;}
+.pubs{display:flex;flex-direction:column;gap:1.6rem;}
+.pub-title{font-size:1.03rem;font-weight:600;line-height:1.45;margin:0 0 0.3rem;}
 .pub-title a{color:var(--ink);}
 .pub-title a:hover{color:var(--accent-2);}
-.authors{margin:0 0 0.3rem;font-size:0.93rem;color:var(--ink-2);}
+.authors{margin:0 0 0.4rem;font-size:0.93rem;color:var(--ink-2);}
 .authors .me{font-weight:700;color:var(--ink);}
-.gloss{margin:0.3rem 0 0;font-size:0.92rem;color:var(--ink-2);}
-.meta{display:flex;flex-wrap:wrap;align-items:center;gap:0.45rem;font-size:0.84rem;}
+.gloss{margin:0.45rem 0 0;font-size:0.92rem;color:var(--ink-2);max-width:64ch;}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;font-size:0.85rem;margin:0;}
 .tag{
   background:var(--tag-bg);
   color:var(--ink-2);
-  padding:0.1rem 0.5rem;
+  padding:0.12rem 0.5rem;
   border-radius:3px;
   font-weight:500;
   font-size:0.79rem;
-  letter-spacing:0.01em;
 }
 .tag.venue{color:var(--accent);font-weight:600;}
 .meta .sep{color:var(--ink-3);}
+.note{font-size:0.86rem;color:var(--ink-3);margin:1.25rem 0 0;}
 
-/* ---------- lists ---------- */
-.rows{display:flex;flex-direction:column;gap:1rem;}
+/* ---------- rows ---------- */
+.rows{display:flex;flex-direction:column;gap:1.2rem;}
 .row-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:0.15rem 1rem;}
-.where{font-weight:600;margin:0;font-size:0.99rem;}
-.when-r{color:var(--ink-3);font-size:0.86rem;white-space:nowrap;font-variant-numeric:tabular-nums;}
-.what{margin:0.1rem 0 0;color:var(--ink-2);font-size:0.93rem;}
+.where{font-weight:600;margin:0;font-size:1rem;}
+.when-r{color:var(--ink-3);font-size:0.87rem;white-space:nowrap;font-variant-numeric:tabular-nums;}
+.what{margin:0.15rem 0 0;color:var(--ink-2);font-size:0.93rem;max-width:64ch;}
 
 footer{
-  margin-top:2.75rem;
-  padding-top:1.25rem;
+  grid-column:1 / -1;
+  margin-top:3rem;
+  padding-top:1.3rem;
   border-top:1px solid var(--rule);
-  font-size:0.84rem;
+  font-size:0.85rem;
   color:var(--ink-3);
+}
+
+/* ---------- narrow ---------- */
+@media (max-width:820px){
+  .shell{grid-template-columns:1fr;gap:2rem;}
+  .rail{position:static;display:grid;grid-template-columns:130px 1fr;gap:0 1.5rem;align-items:start;}
+  .rail img{margin-bottom:0;}
+  .rail .name,.rail .cn,.rail .role,.rail .links{grid-column:2;}
+  .rail img{grid-row:1 / span 4;grid-column:1;}
+  .links{flex-direction:row;flex-wrap:wrap;gap:0.3rem 1.1rem;}
+  .statement{font-size:1.12rem;}
 }
 </style>
 </head>
 <body>
-<div class="page">
+<div class="shell">
 
-  <header class="masthead">
-    <div class="portrait">
-      <img src="photo.jpg" alt="Xiao Zhou" onerror="this.closest('.portrait').remove()">
-    </div>
-    <div class="identity">
-      <h1 class="name">Xiao Zhou<span class="cn">周晓</span></h1>
-      <p class="role">Undergraduate in Artificial Intelligence<br>Shanghai Jiao Tong University</p>
-      <p class="statement">I build evaluations that show where LLM agents break on real digital work — then fix the bottlenecks they expose.</p>
-      <ul class="links">
-        <li><a href="mailto:rebeccazzzz@sjtu.edu.cn">Email</a></li>
-        <li><a href="Xiao_Zhou_CV.pdf">CV</a></li>
-        <li><a href="https://scholar.google.com/citations?user=BzFY1dAAAAAJ&amp;hl=en">Google Scholar</a></li>
-        <li><a href="https://github.com/rebeccaz4">GitHub</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <section class="bio">
-    <p>I am a third-year undergraduate in Artificial Intelligence at Shanghai Jiao Tong University. I am currently a research assistant with <a href="https://armancohan.com/">Prof. Arman Cohan</a> at Yale University, and I work with <a href="https://henryzhao5852.github.io/">Prof. Chen Zhao</a> at NYU Shanghai on computer-use agents and multimodal reasoning.</p>
-    <p>My research is on agents that carry out real digital work over long horizons. I build controlled, realistic environments and benchmarks that isolate <em>where</em> agents fail, and turn those findings into methods that remove the bottlenecks — for instance, image-based memory representations for long-horizon execution. I am applying for PhD programs starting Fall 2027.</p>
-  </section>
-
-  <section>
-    <h2>News</h2>
-    <ul class="news">
-      <li><span class="when">2026.06</span><span>Preprint of <a href="https://arxiv.org/abs/2606.24551">GUI vs. CLI</a>, on execution bottlenecks in computer-use agents, is out.</span></li>
-      <li><span class="when">2026.05</span><span>Preprint of <a href="https://arxiv.org/abs/2605.19769">OpenComputer</a>, verifiable software worlds for computer-use agents, is out.</span></li>
-      <li><span class="when">2026.03</span><span>Started working with Prof. Arman Cohan at Yale University; visiting in person for summer and fall 2026.</span></li>
-      <li><span class="when">2026.01</span><span><a href="https://arxiv.org/abs/2510.09510">MRMR</a> is accepted to ICLR 2026.</span></li>
+  <aside class="rail">
+    <img src="photo.jpg" alt="Xiao Zhou" onerror="this.remove()">
+    <h1 class="name">Xiao Zhou</h1>
+    <span class="cn">周晓</span>
+    <p class="role">Undergraduate in Artificial Intelligence<br>Shanghai Jiao Tong University</p>
+    <ul class="links">
+      <li><a href="mailto:rebeccazzzz@sjtu.edu.cn">Email</a></li>
+      <li><a href="Xiao_Zhou_CV.pdf">Curriculum Vitae</a></li>
+      <li><a href="https://scholar.google.com/citations?user=BzFY1dAAAAAJ&amp;hl=en">Google Scholar</a></li>
+      <li><a href="https://github.com/rebeccaz4">GitHub</a></li>
     </ul>
-  </section>
+  </aside>
 
-  <section>
-    <h2>Publications</h2>
-    <div class="pubs">
+  <main class="content">
 
-      <article class="pub">
-        <a class="thumb" href="https://arxiv.org/abs/2606.24551"><img src="assets/gui-vs-cli.png" alt="Overview figure: GUI and CLI agents compared under identical goals and states" loading="lazy"></a>
-        <div class="pub-body">
-        <h3 class="pub-title"><a href="https://arxiv.org/abs/2606.24551">GUI vs. CLI: Execution Bottlenecks in Screen-Only and Skill-Mediated Computer-Use Agents</a></h3>
-        <p class="authors"><span class="me">Xiao Zhou</span>*, Siyue Zhang*, Yilun Zhao, Jinbiao Wei, Tingyu Song, Arman Cohan, Chen Zhao</p>
-        <p class="meta">
-          <span class="tag">Under review, EMNLP 2026</span>
-          <a href="https://arxiv.org/abs/2606.24551">arXiv</a><span class="sep">·</span>
-          <a href="https://github.com/rebeccaz4/gui-vs-cli">Code</a>
-        </p>
-        <p class="gloss">Holds goals and states fixed across screen-only and skill-mediated agents, isolating execution bottlenecks that belong to the interface rather than the model.</p>
-        </div>
-      </article>
+    <p class="statement">I build evaluations that show where LLM agents break on real digital work — then fix the bottlenecks they expose.</p>
 
-      <article class="pub">
-        <a class="thumb" href="https://arxiv.org/abs/2605.19769"><img src="assets/opencomputer.png" alt="Overview figure: the four phases of the OpenComputer pipeline" loading="lazy"></a>
-        <div class="pub-body">
-        <h3 class="pub-title"><a href="https://arxiv.org/abs/2605.19769">OpenComputer: Verifiable Software Worlds for Computer-Use Agents</a></h3>
-        <p class="authors">Jinbiao Wei, Qianran Ma, Yilun Zhao, <span class="me">Xiao Zhou</span>, Kangqi Ni, Guo Gan, Arman Cohan</p>
-        <p class="meta">
-          <span class="tag">Under review, NeurIPS 2026</span>
-          <a href="https://arxiv.org/abs/2605.19769">arXiv</a><span class="sep">·</span>
-          <a href="https://github.com/echo0715/OpenComputer">Code</a><span class="sep">·</span>
-          <a href="https://echo0715.github.io/OpenComputer">Project</a>
-        </p>
-        <p class="gloss">Software environments with verifiable outcomes for training and evaluating agents that operate real computers.</p>
-        </div>
-      </article>
+    <section class="bio">
+      <p>I am a third-year undergraduate in Artificial Intelligence at Shanghai Jiao Tong University. I am currently a research assistant with <a href="https://armancohan.com/">Prof. Arman Cohan</a> at Yale University, and I work with <a href="https://henryzhao5852.github.io/">Prof. Chen Zhao</a> at NYU Shanghai on computer-use agents and multimodal reasoning. I also work with Prof. Hai Zhao at Shanghai Jiao Tong University, where I started out studying reasoning and efficiency in large reasoning models.</p>
+      <p>My research is on agents that carry out real digital work over long horizons. I build controlled, realistic environments and benchmarks that isolate <em>where</em> agents fail, and turn those findings into methods that remove the bottlenecks — for instance, image-based memory representations for long-horizon execution. I am applying for PhD programs starting Fall 2027.</p>
+    </section>
 
-      <article class="pub">
-        <a class="thumb" href="https://arxiv.org/abs/2510.09510"><img src="assets/mrmr.png" alt="Overview figure: MRMR domains and example retrieval queries" loading="lazy"></a>
-        <div class="pub-body">
-        <h3 class="pub-title"><a href="https://arxiv.org/abs/2510.09510">MRMR: A Realistic and Expert-Level Multidisciplinary Benchmark for Reasoning-Intensive Multimodal Retrieval</a></h3>
-        <p class="authors">Siyue Zhang*, Yuan Gao*, <span class="me">Xiao Zhou</span>*, Yilun Zhao, Tingyu Song, Arman Cohan, Anh Tuan Luu, Chen Zhao</p>
-        <p class="meta">
-          <span class="tag venue">ICLR 2026</span>
-          <a href="https://arxiv.org/abs/2510.09510">arXiv</a><span class="sep">·</span>
-          <a href="https://github.com/rebeccaz4/MRMR">Code</a>
-        </p>
-        <p class="gloss">1,435 expert-annotated examples across 23 domains and 6 disciplines, for retrieval that requires reasoning rather than surface matching.</p>
-        </div>
-      </article>
+    <section>
+      <h2>News</h2>
+      <ul class="news">
+        <li><span class="when">2026.06</span><span>Preprint of <a href="https://arxiv.org/abs/2606.24551">GUI vs. CLI</a>, on execution bottlenecks in computer-use agents, is out.</span></li>
+        <li><span class="when">2026.05</span><span>Preprint of <a href="https://arxiv.org/abs/2605.19769">OpenComputer</a>, verifiable software worlds for computer-use agents, is out.</span></li>
+        <li><span class="when">2026.03</span><span>Started working with Prof. Arman Cohan at Yale University; visiting in person for summer and fall 2026.</span></li>
+        <li><span class="when">2026.01</span><span><a href="https://arxiv.org/abs/2510.09510">MRMR</a> is accepted to ICLR 2026.</span></li>
+      </ul>
+    </section>
 
-    </div>
-    <p class="gloss" style="margin-top:1.1rem">* denotes equal contribution.</p>
-  </section>
+    <section>
+      <h2>Publications</h2>
+      <div class="pubs">
 
-  <section>
-    <h2>Experience</h2>
-    <div class="rows">
-      <div>
-        <div class="row-head">
-          <p class="where">Yale University</p>
-          <span class="when-r">Mar 2026 — present</span>
-        </div>
-        <p class="what">Research assistant with Prof. Arman Cohan. Research agents; forecasting weak signals in science.</p>
+        <article>
+          <h3 class="pub-title"><a href="https://arxiv.org/abs/2606.24551">GUI vs. CLI: Execution Bottlenecks in Screen-Only and Skill-Mediated Computer-Use Agents</a></h3>
+          <p class="authors"><span class="me">Xiao Zhou</span>*, Siyue Zhang*, Yilun Zhao, Jinbiao Wei, Tingyu Song, Arman Cohan, Chen Zhao</p>
+          <p class="meta">
+            <span class="tag">Under review, EMNLP 2026</span>
+            <a href="https://arxiv.org/abs/2606.24551">arXiv</a><span class="sep">·</span>
+            <a href="https://github.com/rebeccaz4/gui-vs-cli">Code</a>
+          </p>
+          <p class="gloss">Holds goals and states fixed across screen-only and skill-mediated agents, isolating execution bottlenecks that belong to the interface rather than the model.</p>
+        </article>
+
+        <article>
+          <h3 class="pub-title"><a href="https://arxiv.org/abs/2605.19769">OpenComputer: Verifiable Software Worlds for Computer-Use Agents</a></h3>
+          <p class="authors">Jinbiao Wei, Qianran Ma, Yilun Zhao, <span class="me">Xiao Zhou</span>, Kangqi Ni, Guo Gan, Arman Cohan</p>
+          <p class="meta">
+            <span class="tag">Under review, NeurIPS 2026</span>
+            <a href="https://arxiv.org/abs/2605.19769">arXiv</a><span class="sep">·</span>
+            <a href="https://github.com/echo0715/OpenComputer">Code</a><span class="sep">·</span>
+            <a href="https://echo0715.github.io/OpenComputer">Project</a>
+          </p>
+          <p class="gloss">Software environments with verifiable outcomes for training and evaluating agents that operate real computers.</p>
+        </article>
+
+        <article>
+          <h3 class="pub-title"><a href="https://arxiv.org/abs/2510.09510">MRMR: A Realistic and Expert-Level Multidisciplinary Benchmark for Reasoning-Intensive Multimodal Retrieval</a></h3>
+          <p class="authors">Siyue Zhang*, Yuan Gao*, <span class="me">Xiao Zhou</span>*, Yilun Zhao, Tingyu Song, Arman Cohan, Anh Tuan Luu, Chen Zhao</p>
+          <p class="meta">
+            <span class="tag venue">ICLR 2026</span>
+            <a href="https://arxiv.org/abs/2510.09510">arXiv</a><span class="sep">·</span>
+            <a href="https://github.com/rebeccaz4/MRMR">Code</a>
+          </p>
+          <p class="gloss">1,435 expert-annotated examples across 23 domains and 6 disciplines, for retrieval that requires reasoning rather than surface matching.</p>
+        </article>
+
       </div>
-      <div>
-        <div class="row-head">
-          <p class="where">New York University Shanghai</p>
-          <span class="when-r">Jun 2025 — present</span>
-        </div>
-        <p class="what">Research assistant with Prof. Chen Zhao. Computer-use agents, agent memory, multimodal retrieval.</p>
-      </div>
-      <div>
-        <div class="row-head">
-          <p class="where">Shanghai Jiao Tong University</p>
-          <span class="when-r">Mar 2025 — present</span>
-        </div>
-        <p class="what">Research assistant with Prof. Hai Zhao. Efficiency techniques and their effect on reasoning in large reasoning models.</p>
-      </div>
-    </div>
-  </section>
+      <p class="note">* denotes equal contribution.</p>
+    </section>
 
-  <section>
-    <h2>Education</h2>
-    <div class="rows">
-      <div>
-        <div class="row-head">
-          <p class="where">Shanghai Jiao Tong University</p>
-          <span class="when-r">Sep 2023 — Jun 2027 (expected)</span>
+    <section>
+      <h2>Experience</h2>
+      <div class="rows">
+        <div>
+          <div class="row-head">
+            <p class="where">Yale University</p>
+            <span class="when-r">Mar 2026 — present</span>
+          </div>
+          <p class="what">Research assistant with Prof. Arman Cohan. Research agents; forecasting weak signals in science.</p>
         </div>
-        <p class="what">B.Eng. in Artificial Intelligence</p>
+        <div>
+          <div class="row-head">
+            <p class="where">New York University Shanghai</p>
+            <span class="when-r">Jun 2025 — present</span>
+          </div>
+          <p class="what">Research assistant with Prof. Chen Zhao. Computer-use agents, agent memory, multimodal retrieval.</p>
+        </div>
+        <div>
+          <div class="row-head">
+            <p class="where">Shanghai Jiao Tong University</p>
+            <span class="when-r">Mar 2025 — present</span>
+          </div>
+          <p class="what">Research assistant with Prof. Hai Zhao. Efficiency techniques and their effect on reasoning in large reasoning models.</p>
+        </div>
+        <div>
+          <div class="row-head">
+            <p class="where">Yalotein Biotech</p>
+            <span class="when-r">Sep 2025 — present</span>
+          </div>
+          <p class="what">Software engineering intern. Built a knowledge-base question-answering system with document ingestion and hybrid retrieval; now building a multi-agent system around the knowledge-base agent.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="rows">
+        <div>
+          <div class="row-head">
+            <p class="where">Shanghai Jiao Tong University</p>
+            <span class="when-r">Sep 2023 — Jun 2027 (expected)</span>
+          </div>
+          <p class="what">B.Eng. in Artificial Intelligence</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <footer>rebeccazzzz@sjtu.edu.cn</footer>
 
