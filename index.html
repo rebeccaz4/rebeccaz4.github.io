@@ -139,7 +139,26 @@ h2{
 }
 
 /* ---------- publications ---------- */
-.pubs{display:flex;flex-direction:column;gap:1.4rem;}
+.pubs{display:flex;flex-direction:column;gap:1.75rem;}
+.pub{display:flex;align-items:flex-start;gap:1.15rem;}
+.thumb{flex:0 0 215px;display:block;}
+.thumb img{
+  display:block;
+  width:100%;
+  height:auto;
+  border:1px solid var(--rule);
+  border-radius:3px;
+  background:#fff;
+}
+.pub-body{flex:1 1 auto;min-width:0;}
+@media (max-width:620px){
+  .pub{flex-direction:column;gap:0.85rem;}
+  .thumb{flex:0 0 auto;width:100%;max-width:26rem;}
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .thumb img{filter:brightness(0.9);}
+}
+:root[data-theme="dark"] .thumb img{filter:brightness(0.9);}
 .pub-title{font-size:1.02rem;font-weight:600;line-height:1.4;margin:0 0 0.25rem;}
 .pub-title a{color:var(--ink);}
 .pub-title a:hover{color:var(--accent-2);}
@@ -214,7 +233,9 @@ footer{
     <h2>Publications</h2>
     <div class="pubs">
 
-      <article>
+      <article class="pub">
+        <a class="thumb" href="https://arxiv.org/abs/2606.24551"><img src="assets/gui-vs-cli.png" alt="Overview figure: GUI and CLI agents compared under identical goals and states" loading="lazy"></a>
+        <div class="pub-body">
         <h3 class="pub-title"><a href="https://arxiv.org/abs/2606.24551">GUI vs. CLI: Execution Bottlenecks in Screen-Only and Skill-Mediated Computer-Use Agents</a></h3>
         <p class="authors"><span class="me">Xiao Zhou</span>*, Siyue Zhang*, Yilun Zhao, Jinbiao Wei, Tingyu Song, Arman Cohan, Chen Zhao</p>
         <p class="meta">
@@ -223,9 +244,12 @@ footer{
           <a href="https://github.com/rebeccaz4/gui-vs-cli">Code</a>
         </p>
         <p class="gloss">Holds goals and states fixed across screen-only and skill-mediated agents, isolating execution bottlenecks that belong to the interface rather than the model.</p>
+        </div>
       </article>
 
-      <article>
+      <article class="pub">
+        <a class="thumb" href="https://arxiv.org/abs/2605.19769"><img src="assets/opencomputer.png" alt="Overview figure: the four phases of the OpenComputer pipeline" loading="lazy"></a>
+        <div class="pub-body">
         <h3 class="pub-title"><a href="https://arxiv.org/abs/2605.19769">OpenComputer: Verifiable Software Worlds for Computer-Use Agents</a></h3>
         <p class="authors">Jinbiao Wei, Qianran Ma, Yilun Zhao, <span class="me">Xiao Zhou</span>, Kangqi Ni, Guo Gan, Arman Cohan</p>
         <p class="meta">
@@ -235,9 +259,12 @@ footer{
           <a href="https://echo0715.github.io/OpenComputer">Project</a>
         </p>
         <p class="gloss">Software environments with verifiable outcomes for training and evaluating agents that operate real computers.</p>
+        </div>
       </article>
 
-      <article>
+      <article class="pub">
+        <a class="thumb" href="https://arxiv.org/abs/2510.09510"><img src="assets/mrmr.png" alt="Overview figure: MRMR domains and example retrieval queries" loading="lazy"></a>
+        <div class="pub-body">
         <h3 class="pub-title"><a href="https://arxiv.org/abs/2510.09510">MRMR: A Realistic and Expert-Level Multidisciplinary Benchmark for Reasoning-Intensive Multimodal Retrieval</a></h3>
         <p class="authors">Siyue Zhang*, Yuan Gao*, <span class="me">Xiao Zhou</span>*, Yilun Zhao, Tingyu Song, Arman Cohan, Anh Tuan Luu, Chen Zhao</p>
         <p class="meta">
@@ -245,7 +272,8 @@ footer{
           <a href="https://arxiv.org/abs/2510.09510">arXiv</a><span class="sep">·</span>
           <a href="https://github.com/rebeccaz4/MRMR">Code</a>
         </p>
-        <p class="gloss">1,502 expert-verified queries across 23 domains for retrieval that requires reasoning, not surface matching.</p>
+        <p class="gloss">1,435 expert-annotated examples across 23 domains and 6 disciplines, for retrieval that requires reasoning rather than surface matching.</p>
+        </div>
       </article>
 
     </div>
