@@ -199,7 +199,7 @@ footer{
   <main class="content">
 
     <section class="bio first">
-      <p>I am a fourth-year undergraduate in Artificial Intelligence at Shanghai Jiao Tong University. I am currently a research assistant with <a href="https://armancohan.com/">Prof. Arman Cohan</a> at Yale University, working on agentic search and AI for scientific discovery. Before that I worked with <a href="https://henryzhao5852.github.io/">Prof. Chen Zhao</a> at NYU Shanghai on reasoning-intensive multimodal retrieval and computer-use agents. I also worked with <a href="https://bcmi.sjtu.edu.cn/home/zhaohai/">Prof. Hai Zhao</a> at Shanghai Jiao Tong University on the efficiency of large reasoning models. Alongside this, I intern at Yalotein Biotech, where I have built two agent applications.</p>
+      <p>I am a fourth-year undergraduate in Artificial Intelligence at Shanghai Jiao Tong University. I am currently a research assistant with <a href="https://armancohan.com/">Prof. Arman Cohan</a> at Yale University, working on agentic search and AI for scientific discovery. Before that I worked with <a href="https://henryzhao5852.github.io/">Prof. Chen Zhao</a> at NYU Shanghai on reasoning-intensive multimodal retrieval and computer-use agents. I also worked with <a href="https://bcmi.sjtu.edu.cn/home/zhaohai/">Prof. Hai Zhao</a> at Shanghai Jiao Tong University on the efficiency of large reasoning models. Alongside this, I intern at Yalotein Biotech, where I have built two open-source projects.</p>
       <p>My long-term research goal is to develop language agents that help people reliably complete complex real-world tasks end to end and ultimately support open-ended scientific discovery. My research spans three connected directions:</p>
       <ul class="interests">
         <li><strong>Information Retrieval and Agentic Search.</strong> I study how agents acquire relevant evidence and retain useful knowledge throughout an extended search.<br><span class="interest-papers"><a href="https://arxiv.org/abs/2510.09510">MRMR</a></span></li>
@@ -268,6 +268,18 @@ footer{
         </article>
 
         <article>
+          <h3 class="pub-title"><a href="https://arxiv.org/abs/2605.02661">AcademiClaw: When Students Set Challenges for AI Agents</a></h3>
+          <p class="authors">Junjie Yu, Pengrui Lu, Weiye Si, …, <span class="me">Xiao Zhou</span>, …, Pengfei Liu</p>
+          <p class="meta">
+            <span class="tag">Preprint</span>
+            <a href="https://arxiv.org/abs/2605.02661">arXiv</a><span class="sep">·</span>
+            <a href="https://github.com/GAIR-NLP/AcademiClaw">Code</a><span class="sep">·</span>
+            <a href="https://gair-nlp.github.io/AcademiClaw/">Project</a>
+          </p>
+          <p class="gloss">A bilingual benchmark of 80 long-horizon tasks drawn from students’ real academic workflows across more than 25 domains, evaluated in isolated Docker environments with task-specific rubrics.</p>
+        </article>
+
+        <article>
           <h3 class="pub-title"><a href="https://arxiv.org/abs/2510.09510">MRMR: A Realistic and Expert-Level Multidisciplinary Benchmark for Reasoning-Intensive Multimodal Retrieval</a></h3>
           <p class="authors">Siyue Zhang*, Yuan Gao*, <span class="me">Xiao Zhou</span>*, Yilun Zhao, Tingyu Song, Arman Cohan, Anh Tuan Luu, Chen Zhao</p>
           <p class="meta">
@@ -281,6 +293,31 @@ footer{
 
       </div>
       <p class="note">* denotes equal contribution.</p>
+    </section>
+
+    <section>
+      <h2>Open-Source Projects</h2>
+      <div class="pubs projects">
+
+        <article>
+          <h3 class="pub-title"><a href="https://github.com/yalotein/agents_memory">agents_memory</a></h3>
+          <p class="meta">
+            <span class="tag">Yalotein Biotech</span>
+            <a href="https://github.com/yalotein/agents_memory">Code</a>
+          </p>
+          <p class="gloss">A shared knowledge and memory system for multi-agent workflows, integrating document retrieval with persistent agent memory to support evidence-grounded reasoning and knowledge reuse across agents and sessions.</p>
+        </article>
+
+        <article>
+          <h3 class="pub-title"><a href="https://github.com/yalotein/agents_debate">agents_debate</a></h3>
+          <p class="meta">
+            <span class="tag">Yalotein Biotech</span>
+            <a href="https://github.com/yalotein/agents_debate">Code</a>
+          </p>
+          <p class="gloss">A multi-agent decision-making system that simulates human debate, with agents taking opposing positions, rebutting one another across structured rounds, and arriving at a final decision with human participation.</p>
+        </article>
+
+      </div>
     </section>
 
     <section>
@@ -303,7 +340,7 @@ footer{
         <div>
           <div class="row-head">
             <p class="where">Shanghai Jiao Tong University</p>
-            <span class="when-r">Mar 2025 — present</span>
+            <span class="when-r">Mar 2025 — Jun 2026</span>
           </div>
           <p class="what">Research assistant with <a href="https://bcmi.sjtu.edu.cn/home/zhaohai/">Prof. Hai Zhao</a>. Efficiency of large reasoning models.</p>
         </div>
@@ -318,29 +355,8 @@ footer{
             <p class="where">Yalotein Biotech</p>
             <span class="when-r">Sep 2025 — present</span>
           </div>
-          <p class="what">Intern at a startup.</p>
+          <p class="what">Intern at a startup, working on two projects.</p>
         </div>
-      </div>
-      <div class="pubs projects">
-
-        <article>
-          <h3 class="pub-title">Knowledge-Base Management and Question Answering</h3>
-          <p class="meta">
-            <span class="tag">Yalotein Biotech</span>
-            <span class="soon">Code to be released</span>
-          </p>
-          <p class="gloss">An application for maintaining and querying an internal knowledge base: document ingestion, keyword and embedding-based retrieval, user-driven knowledge updates, and an interactive query interface. Built as a multi-agent system around a knowledge-base agent, so that retrieval, updating, and downstream reasoning are handled by separate cooperating agents.</p>
-        </article>
-
-        <article>
-          <h3 class="pub-title">Agents-Debate</h3>
-          <p class="meta">
-            <span class="tag">Yalotein Biotech</span>
-            <span class="soon">Code to be released</span>
-          </p>
-          <p class="gloss">A multi-agent debate system that simulates how a group of people talk a question through to a decision. Agents argue from different positions, and a person can join the discussion at any point.</p>
-        </article>
-
       </div>
     </section>
 
